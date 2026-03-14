@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Grade Manager</title>
+</head>
+<body>
+
+<h1>Student Grade Manager</h1>
+
+<input id="studentName" placeholder="Student Name">
+<input id="studentGrade" placeholder="Grade">
+<button id="addBtn">Add Student</button>
+
+<h3>Student List</h3>
+<ul id="studentList"></ul>
+
+<p>Total Students: <span id="totalStudents">0</span></p>
+<p>Average Grade: <span id="averageGrade">0</span></p>
+
+<script>
+  const studentName = document.getElementById("studentName");
+  const studentGrade = document.getElementById("studentGrade");
+  const addBtn = document.getElementById("addBtn");
+
+  const studentList = document.getElementById("studentList");
+
+  const totalStudents = document.getElementById("totalStudents");
+  const averageGrade = document.getElementById("averageGrade");
+
+  addBtn.addEventListener("click", function() {
+    const stdName_input = studentName.value.trim();
+    const stdGrade_input = studentGrade.value.trim();
+
+    const new_li = document.createElement("li");
+    const btn_li = document.createElement("button");
+
+    new_li.textContent = stdName_input + " - " + stdGrade_input;
+    btn_li.textContent = "Delete";
+
+    btn_li.addEventListener("click", function() {
+      new_li.remove();
+    });
+
+    new_li.appendChild(btn_li);
+    studentList.appendChild(new_li);
+    updateTotal()
+  });
+
+  function updateTotal() {
+    const total_students = document.querySelectorAll("li").length;
+    totalStudents.textContent = total_students;
+  }
+</script>
+
+</body>
+</html>
