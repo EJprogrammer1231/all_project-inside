@@ -1,0 +1,106 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple to do list</title>
+  </head>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    section{
+      border: 1px solid black;
+      text-align: center;
+      padding: 20px;
+      height: 35rem;
+    }
+    ul{
+      height: 25rem;
+      border: solid 1px gray;
+      padding: 10px;
+    }
+    input{
+      padding: 5px;
+      outline: none;
+    }
+    button{
+      padding: 5px;
+      outline: none;
+    }
+    li{
+      list-style: none;
+    }
+  </style>
+  <body>
+
+    <section>
+      <input id="taskInput" placeholder="Enter task today!" maxlength="30" >
+      <button id="addTaskList">Add</button>
+      <button id="reselAll">reset</button>
+
+      <hr>
+      <h1>List Today</h1>
+      <ul id="taskList"></ul>
+    </section>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addTaskList = document.getElementById("addTaskList");
+      const reselAll = document.getElementById("reselAll");
+
+      const taskList = document.getElementById("taskList");
+
+      addTaskList.addEventListener("click", 
+      function() {
+        const taskInput_val = taskInput.value;
+
+        if (taskList.children.length > 14) {
+        alert("ERROR MAX LENGTH");
+        return;
+  }
+
+        if (!taskInput_val) {
+          alert("Please complete the field first!!");
+          return;
+        }
+
+        const li = document.createElement("li");
+        const btn_delete = document.createElement("button"); 
+        const btn_done = document.createElement("button");
+
+        btn_delete.textContent = "Delete";
+        btn_done.textContent = "Done";
+        li.textContent = taskInput_val;
+
+        btn_delete.addEventListener("click",
+        function() {
+          li.remove();
+        });
+
+        btn_done.addEventListener("click", 
+        function() {
+          li.style.color = "gray";
+        });
+
+        li.appendChild(btn_delete);
+        li.appendChild(btn_done);
+        taskList.appendChild(li);
+
+        taskInput.value = "";
+      });
+
+      reselAll.addEventListener("click", 
+      function() {
+        taskInput.value = "";
+        taskList.innerHTML = "";
+      });
+    </script>
+  </body>
+  </html>
