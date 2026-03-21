@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .active{
+    color: red;
+    font-size: 20px;
+  }
+</style>
+<body>
+  <input id="taskInput" placeholder="Enter a task">
+  <button id="btnAdd">Add</button>
+
+  <ul id="displayTask"></ul>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const btnAdd = document.getElementById("btnAdd");
+
+    const displayTask = document.getElementById("displayTask");
+
+    btnAdd.addEventListener("click",function() {
+      const inputVal = taskInput.value.trim();
+
+      if (!inputVal) {
+      alert("Enter first!!!") 
+      return
+    };
+
+      const ini_li = document.createElement("li");
+      const ini_delete = document.createElement("button");
+      const ini_completed = document.createElement("button");
+
+      ini_li.textContent = inputVal;
+      ini_delete.textContent = "Delete";
+      ini_completed.textContent = "Completed"
+
+      displayTask.appendChild(ini_li);
+      ini_li.appendChild(ini_delete);
+      ini_li.appendChild(ini_completed);
+
+      ini_completed.addEventListener("click",function() {
+        ini_li.classList.toggle("active");
+      });
+
+      ini_delete.addEventListener("click",function() {
+        ini_li.remove();
+      });
+
+      taskInput.value = "";
+    });
+  </script>
+</body>
+</html>

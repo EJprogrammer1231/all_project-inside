@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <label>Enter task</label>
+  <input id="inputfieldTask">
+  <button id="Addbtn">Add</button>
+  <br>
+
+  <h1>Task List</h1>
+  <ul id="displayTask"></ul>
+
+  <script>
+    const inputfieldTask = document.getElementById("inputfieldTask");
+    const Addbtn = document.getElementById("Addbtn");
+
+    const displayTask = document.getElementById("displayTask");
+
+    Addbtn.addEventListener("click" , () => {
+      const inputVal = inputfieldTask.value.trim();
+
+      if (!inputVal) {
+        alert("Fill up the field please !!");
+        return;
+      }
+
+      const createEle = document.createElement("li");
+      const createCheck = document.createElement("input");
+      const createBtn = document.createElement("button");
+
+      createBtn.textContent = "Delete";
+      createCheck.type = "checkbox";
+      createEle.textContent = inputVal;
+
+      createBtn.addEventListener("click" , () => {
+        createEle.remove();
+      }); 
+
+      createCheck.addEventListener("click" , () => {
+        if (createCheck.checked) {
+          createEle.style.color = "gray";
+        }
+        else{
+          createEle.style.color = "black";
+        }
+      });
+
+      displayTask.appendChild(createEle);
+      createEle.appendChild(createCheck);
+      createEle.appendChild(createBtn);
+
+      inputfieldTask.value = "";
+    });
+  </script>
+</body>
+</html>
+
+<!--
+1. show a input of user in the ul - done
+2. add a remove features on side of we create Element - done
+3. when clicking a createBtn the function is deleted a createEle - done
+4. we add a checkbox - done
+5. we create a if staement to prevent empty - done
+6. we add a interaction on checkbox that if its check its change color text - done
+-->
