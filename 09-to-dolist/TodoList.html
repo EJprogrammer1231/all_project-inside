@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <h1>To-Do List</h1>
+    <section class="nested-sec">
+      <input id="inputField" placeholder="Add a new Task">
+      <button id="addBtn" class="btn-1">Add Task</button>
+
+      <div class="div-container-btn">
+        <button id="allBtn" class="btn-2">All</button>
+        <button id="completedBtn" class="btn-2">Completed</button>
+        <button id="activeBtn" class="btn-2">Active</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </section>
+    <footer>
+      <span id="taskcount">0<span> - Task left</span></span>
+      <button id="taskcompletedBtn">Clear Completed</button>
+    </footer>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>

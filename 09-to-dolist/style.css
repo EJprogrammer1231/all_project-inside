@@ -1,0 +1,97 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+.nested-sec{
+  background-color: rgb(211, 209, 209);
+  width: 30rem;
+  height: 20rem;
+  padding: 10px;
+}
+input{
+  height: 35px;
+  outline-style: none;
+  padding: 5px;
+  width: 20rem;
+}
+.btn-1{
+  height: 35px;
+  outline-style: none;
+  padding: 5px;
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-1:active{
+  background-color: gray;
+  color: black;
+}
+.div-container-btn{
+  background-color: rgb(190, 189, 188);
+  margin-top: 10px;
+}
+.btn-2{
+  outline-style: none;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn-2:hover {
+  background-color: blue;
+  color: white;
+  transition-duration: 0.60s;
+}
+.btn-2:active{
+  background-color: gray;
+  transition-duration: 0.10s;
+}
+
+/* updated li layout (minimal change) */
+ul > li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+ul > li > button{
+  border: none;
+  background: none;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* smaller checkbox */
+ul > li input[type="checkbox"]{
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+footer{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(211, 209, 209);
+  color: rgb(58, 57, 57);
+  padding-bottom: 5px;
+}
+footer > button{
+  outline-style: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: whitesmoke;
+  padding: 3px;
+  border-radius: 5px;
+}
